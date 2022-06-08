@@ -11,6 +11,9 @@ import java.math.BigDecimal;
 public class Apple {
     private Integer id;
     private String name;
+
+    private String color;
+
     private BigDecimal money;
     private Integer num;
     public Apple(Integer id, String name, BigDecimal money, Integer num) {
@@ -18,6 +21,26 @@ public class Apple {
         this.name = name;
         this.money = money;
         this.num = num;
+    }
+
+    public Apple(Integer id, String name, BigDecimal money, Integer num,String color) {
+        this.id = id;
+        this.name = name;
+        this.money = money;
+        this.num = num;
+        this.color = color;
+    }
+
+    public Apple() {
+
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public Integer getId() {

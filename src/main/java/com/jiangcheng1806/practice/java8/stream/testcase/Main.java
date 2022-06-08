@@ -4,7 +4,11 @@ import com.google.gson.Gson;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author ：jiangcheng
@@ -16,10 +20,10 @@ public class Main {
     public static void main(String[] args) {
         List<Apple> appleList = new ArrayList<>();//存放apple对象集合
 
-        Apple apple1 =  new Apple(1,"苹果1",new BigDecimal("3.25"),10);
-        Apple apple12 = new Apple(1,"苹果2",new BigDecimal("1.35"),20);
-        Apple apple2 =  new Apple(2,"香蕉",new BigDecimal("2.89"),30);
-        Apple apple3 =  new Apple(3,"荔枝",new BigDecimal("9.99"),40);
+        Apple apple1 =  new Apple(1,"苹果",new BigDecimal("3.25"),10,"red");
+        Apple apple12 = new Apple(2,"苹果",new BigDecimal("1.35"),20,"green");
+        Apple apple2 =  new Apple(3,"香蕉",new BigDecimal("2.89"),30,"red");
+        Apple apple3 =  new Apple(4,"荔枝",new BigDecimal("9.99"),40,"green");
 
         appleList.add(apple1);
         appleList.add(apple12);
@@ -28,14 +32,27 @@ public class Main {
 
         System.out.println(new Gson().toJson(appleList));;
 
-        TestTask.testList2Map(appleList);
+        ListStreamTest.testList2Map(appleList);
 
-        TestTask.testList2GrouBy(appleList);
+        ListStreamTest.testList2GrouBy(appleList);
 
-        TestTask.testListFilter(appleList);
+        ListStreamTest.testListFilter(appleList);
 
-        TestTask.testDecimalSum(appleList);
+        ListStreamTest.testDecimalSum(appleList);
 
-        TestTask.testCountDigits(appleList);
+        ListStreamTest.testCountDigits(appleList);
+
+
+        List<String> items =
+                Arrays.asList("apple", "apple", "banana",
+                        "apple", "orange", "banana", "papaya");
+
+
+        System.out.println(new Gson().toJson(items));;
+
+        ListStreamTest.testStrListGroupBy(items);
+
+
+
     }
 }
